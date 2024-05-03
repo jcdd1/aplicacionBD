@@ -8,15 +8,15 @@ using Microsoft.Data.SqlClient;
 
 namespace aplicacionBD
 {
-    public class Conexion
+    public class clsConexion
     {
         private string Base;
         private string Servidor;
         private string Usuario;
         private string Clave;
-        private static Conexion Con = null;
+        private static clsConexion Con = null;
 
-        public Conexion()
+        public clsConexion()
         {
             this.Base = "ProyectoBD";
             this.Servidor = "DESKTOP-ABKR6G2";
@@ -41,7 +41,7 @@ namespace aplicacionBD
             return Cadena;
         }
 
-        public void abrir()
+        public SqlConnection abrir()
         {
             SqlConnection miconexion = CrearConexion();
 
@@ -55,6 +55,8 @@ namespace aplicacionBD
                 Console.WriteLine("Conexión No exitosa: " + ex.Message);
                 throw;
             }
+
+            return miconexion;
         }
     }
 }

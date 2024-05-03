@@ -9,8 +9,23 @@ namespace aplicacionBD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
-            conexion.abrir();
+
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            clsUsuario usuario = new clsUsuario(txtUsuario.Text, txtContra.Text);
+            int consulta = usuario.consultarUsuario(usuario.strUsuario, usuario.strcontra);
+
+            if (consulta == 1)
+            {
+                MessageBox.Show("Usuario registrado");
+            }
+            else
+            {
+                MessageBox.Show("Contraseña o Usuario invalido");
+            }
+
         }
     }
 }
