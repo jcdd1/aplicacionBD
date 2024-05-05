@@ -1,0 +1,13 @@
+configuration: Release
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+
+# Build script (compilación)
+build_script:
+  - cmd: nuget restore
+  - cmd: msbuild /verbosity:minimal /logger:Appveyor /t:Rebuild
+
+# Configuración del entorno
+platform: x64
+configuration: Release
