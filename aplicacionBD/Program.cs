@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 namespace aplicacionBD
 {
     internal static class Program
@@ -10,7 +12,8 @@ namespace aplicacionBD
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }
