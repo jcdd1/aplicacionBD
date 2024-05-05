@@ -1,4 +1,6 @@
-﻿namespace aplicacionBD
+﻿using System;
+using System.Windows.Forms;
+namespace aplicacionBD
 {
     partial class Form1
     {
