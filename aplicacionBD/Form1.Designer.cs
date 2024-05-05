@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 namespace aplicacionBD
 {
     partial class Form1

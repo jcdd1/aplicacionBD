@@ -14,7 +14,7 @@ namespace aplicacionBD
         private string Servidor;
         private string Usuario;
         private string Clave;
-        private static clsConexion Con = null;
+        
 
         public clsConexion()
         {
