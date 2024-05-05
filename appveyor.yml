@@ -10,4 +10,4 @@ build_script:
 
 # Configuración del entorno
 platform: x64
-configuration: Release
+
