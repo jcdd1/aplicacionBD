@@ -13,6 +13,8 @@ on:
 jobs:
   build:
     name: Build and analyze
+    verbosity: minimal
+    publish_wap: true
     runs-on: windows-latest
     steps:
       - name: Set up JDK 17
