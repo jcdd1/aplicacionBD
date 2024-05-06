@@ -3,21 +3,21 @@ image: Visual Studio 2019
 configuration: Release
 
 environment:
-  GITHUB_TOKEN: <your_token_here>
-  SONAR_TOKEN: <your_token_here>
+  GITHUB_TOKEN: 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
+  SONAR_TOKEN: 4b3d762976e8d29b4d4cacf462201be32235cdbc
 
 before_build:
-  - cmd: nuget restore your_solution.sln
+  - nuget restore
 
 build_script:
-  - cmd: msbuild /p:Configuration=Release your_solution.sln
+  - cmd: msbuild /p:Configuration=Release aplicacionBD.sln
   - cmd: dotnet tool install --global dotnet-sonarscanner
   - cmd: dotnet-sonarscanner begin /k:"jcdd1_aplicacionBD" /o:"loscalidosos" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%"
-  - cmd: msbuild /p:Configuration=Release your_solution.sln
+  - cmd: msbuild /p:Configuration=Release aplicacionBD.sln
   - cmd: dotnet-sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
 
 artifacts:
-  - path: 'path\to\your\build\artifacts\**\*'
+  - path: 'aplicacionBD\**\bin\Release\**\*'
     name: Build Artifacts
 
 cache:
