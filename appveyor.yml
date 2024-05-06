@@ -1,23 +1,10 @@
-image: Visual Studio 2019
-
 configuration: Release
 
-environment:
-  GITHUB_TOKEN: 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
-  SONAR_TOKEN: 4b3d762976e8d29b4d4cacf462201be32235cdbc
-
+# restore NuGet packages before running MSBuild
 before_build:
   - nuget restore
 
-build_script:
-  - cmd: msbuild /p:Configuration=Release aplicacionBD.sln
-  - cmd: dotnet tool install --global dotnet-sonarscanner
-  - cmd: dotnet-sonarscanner begin /k:"jcdd1_aplicacionBD" /o:"loscalidosos" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%SONAR_TOKEN%"
-  - cmd: msbuild /p:Configuration=Release aplicacionBD.sln
-  - cmd: dotnet-sonarscanner end /d:sonar.login="%SONAR_TOKEN%"
-  
-on_success:
-  - echo Build succeeded!
-
-on_failure:
-  - echo Build failed!
+# package Web Application project for Web Deploy
+build:
+  verbosity: minimal
+  publish_wap: true
